@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-container id="mycontainer">
+    <el-container id="mycontainer" v-if="!isFullShow">
       <el-aside id="mysidebar" width="200px" style="background-color: rgb(238, 241, 246)">
         <SideBar></SideBar>
       </el-aside>
@@ -14,6 +14,7 @@
         </el-main>
       </el-container>
     </el-container>
+    <router-view v-if="isFullShow"></router-view>
   </div>
 </template>
 
@@ -25,6 +26,11 @@ export default {
   components: {
     SideBar
 
+  },
+  data() {
+    return {
+      isFullShow: false
+    }
   }
 }
 </script>

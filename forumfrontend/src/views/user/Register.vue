@@ -41,7 +41,7 @@ name: "Register"
   .myregister {
     margin-top: 250px;
     top: 0;
-    left: 45%;
+    left: 38%;
     right: 0;
     bottom: 0;
     position: absolute;

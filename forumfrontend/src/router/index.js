@@ -18,14 +18,23 @@ const routes = [
     children: [
       {
         path: 'resources',
+        mata: {
+          requireLogin: true,
+        },
         component: () => import('../views/function/Resources')
       },
       {
         path: 'chatroom',
+        meta: {
+          requireLogin: true,
+        },
         component: () => import('../views/function/ChatRoom')
       },
       {
         path: 'forum',
+        meta: {
+          requireLogin: true,
+        },
         component: () => import('../views/function/Forum')
       }
     ]

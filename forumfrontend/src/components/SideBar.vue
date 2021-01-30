@@ -6,9 +6,10 @@
           <template slot="title"><i class="el-icon-message"></i>导航一</template>
           <el-menu-item-group>
             <template slot="title">主页面区</template>
+            <el-menu-item index="/">欢迎</el-menu-item>
             <el-menu-item index="/pages/resources">资源区</el-menu-item>
             <el-menu-item index="/pages/chatroom">聊天室</el-menu-item>
-
+            <el-menu-item index="/pages/forum">论坛</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       </el-menu>
