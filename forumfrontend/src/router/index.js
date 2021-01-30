@@ -3,25 +3,47 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+
+
 const routes = [
+  {
+    path: '/',
+    component: () => import('../views/Welcome')
+
+  },
   {
     path: '/pages',
     name: 'pages',
-    component: () => import('../views/Pages'),
-    children: [{
-      path: 'main',
-      component: () => import('../views/Resources')
-    }]
+    component: () => import('../components/Pages'),
+    children: [
+      {
+        path: 'resources',
+        component: () => import('../views/function/Resources')
+      },
+      {
+        path: 'chatroom',
+        component: () => import('../views/function/ChatRoom')
+      },
+      {
+        path: 'forum',
+        component: () => import('../views/function/Forum')
+      }
+    ]
   },
   {
-    path: '/test',
-    name: 'test',
-    component: () => import('../views/Main2')
-  },
-  {
-    path: '/sidebar',
-    name: 'sidebar',
-    component: () => import('../components/SideBar')
+    path: '/user',
+    name: 'user',
+    component: () => import('../components/User'),
+    children: [
+      {
+        path: 'login',
+        component: () => import('../views/user/Login')
+      },
+      {
+        path: 'register',
+        component: () => import('../views/user/Register')
+      }
+    ]
   }
 ]
 

@@ -1,10 +1,12 @@
 <template>
-  <h2>Main22222</h2>
+  <div class="myChatRoom">
+
+  </div>
 </template>
 
 <script>
 export default {
-name: "Main2"
+name: "ChatRoom"
 }
 </script>
 

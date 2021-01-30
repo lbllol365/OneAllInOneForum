@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <el-container>
+    <el-container id="mycontainer">
       <el-aside id="mysidebar" width="200px" style="background-color: rgb(238, 241, 246)">
         <SideBar></SideBar>
       </el-aside>
       <el-container>
         <el-header id="myheader" style="text-align: right; font-size: 12px">
-          <router-link tag="el-button" to="/pages/main">main</router-link>
-          <router-link tag="el-button" to="/test">test</router-link>
+          <router-link tag="el-button" to="/user/login">Login</router-link>
+          <router-link tag="el-button" to="/user/register">Register</router-link>
         </el-header>
         <el-main id="mymain">
           <router-view></router-view>
@@ -41,6 +41,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#mycontainer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 #mysidebar {
