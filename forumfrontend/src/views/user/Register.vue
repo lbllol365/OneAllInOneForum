@@ -8,13 +8,13 @@
         <tr>
           <td>用户名</td>
           <td>
-            <el-input placeholder="请输入用户名"></el-input>
+            <el-input v-model="username" placeholder="请输入用户名"></el-input>
           </td>
         </tr>
         <tr>
           <td>密码</td>
           <td>
-            <el-input type="password" placeholder="请输入密码"></el-input>
+            <el-input v-model="password" type="password" placeholder="请输入密码"></el-input>
             <!-- @keydown.enter.native="doLogin"当按下enter键的时候也会执行doLogin方法-->
           </td>
         </tr>
@@ -23,7 +23,7 @@
           <td colspan="2">
             <!-- 点击事件的两种不同的写法v-on:click和 @click-->
             <!--<el-button style="width: 300px" type="primary" v-on:click="doLogin">登录</el-button>-->
-            <el-button style="width: 350px" type="primary">注册</el-button>
+            <el-button style="width: 350px" type="primary" v-on:click="doRegister">注册</el-button>
           </td>
         </tr>
       </table>
@@ -33,7 +33,18 @@
 
 <script>
 export default {
-name: "Register"
+name: "Register",
+  data() {
+    return {
+      username: null,
+      password: null
+    }
+  },
+  methods: {
+    doRegister() {
+
+    }
+  }
 }
 </script>
 
