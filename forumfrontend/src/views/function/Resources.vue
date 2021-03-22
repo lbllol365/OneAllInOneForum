@@ -12,6 +12,10 @@
         >
       </el-table-column>
       <el-table-column
+        prop="obtainDate"
+        label="收录日期">
+      </el-table-column>
+      <el-table-column
         prop="tag"
         label="资源分类"
         :filters="filtersData"
