@@ -2,12 +2,15 @@ package com.lbl.forumbackend.service.impl;
 
 import com.lbl.forumbackend.pojo.Resource;
 import com.lbl.forumbackend.service.ResourceService;
+import com.lbl.forumbackend.util.MongoDBSearchUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -25,19 +28,23 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public List<Resource> getResourcesByType(String type) {
-        return null;
+        return mongoTemplate.find(MongoDBSearchUtil.getQueryWithColName("type", type), Resource.class);
     }
 
     @Override
     public List<Resource> getResourcesByName(String name) {
-        Query query = new Query();
-        query.addCriteria(Criteria.where("name").is("test"));
-        return mongoTemplate.find(query, Resource.class);
+        return mongoTemplate.find(MongoDBSearchUtil.getQueryWithColName("name", name), Resource.class);
     }
 
     @Override
-    public List<Resource> getResourcesByTime(List<Date> dateList) {
-        return null;
+    public List<Resource> getResourcesByTime(List<String> dateList) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime startTime = LocalDateTime.parse(dateList.get(0), formatter);
+        LocalDateTime endTime = LocalDateTime.parse(dateList.get(1), formatter);
+        Criteria criteria = Criteria.where("getDate").gte(startTime).lte(endTime);
+        Query query = new Query();
+        query.addCriteria(criteria);
+        return mongoTemplate.find(query, Resource.class);
     }
 
     @Override
