@@ -4,9 +4,7 @@ package com.lbl.forumbackend.controller;
 import com.lbl.forumbackend.pojo.Resource;
 import com.lbl.forumbackend.service.ResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +17,7 @@ public class ResourceController {
     @Autowired
     private ResourceService service;
 
-    @GetMapping("getAllResources")
+    @GetMapping("getAll")
     public List<Resource> getAllResources() {
         return service.getAllResources();
     }
@@ -32,6 +30,21 @@ public class ResourceController {
         resource.setType("网页");
         resource.setGetDate(new Date());
         service.saveResource(resource);
+    }
+
+    @PostMapping("getByName")
+    public List<Resource> getByName(@RequestBody String name) {
+        return service.getResourcesByName(name);
+    }
+
+    @GetMapping("getType")
+    public List<Object> getResourceType() {
+        return service.getResourceTypes();
+    }
+
+    @PostMapping("getByType")
+    public List<Resource> getByType(@RequestBody String type) {
+        return service.getResourcesByType(type);
     }
 
     @GetMapping("getOne")

@@ -9,3 +9,5 @@ export const getResourceByGetTime = data => fetch('/resource/getByTime', data, "
 export const getResouceCount = data => fetch('/resource/getCount');
 
 export const getResourceByType = data => fetch('/resource/getByType', data, 'POST');
+
+export const getResourceTypes = data => fetch('resource/getType');

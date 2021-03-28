@@ -10,4 +10,5 @@ public interface ResourceService {
     List<Resource> getResourcesByName(String name);
     List<Resource> getResourcesByTime(List<String> dateList);
     void saveResource(Resource resource);
+    List<Object> getResourceTypes();
 }

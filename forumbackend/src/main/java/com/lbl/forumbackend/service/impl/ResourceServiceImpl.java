@@ -51,4 +51,9 @@ public class ResourceServiceImpl implements ResourceService {
     public void saveResource(Resource resource) {
         mongoTemplate.insert(resource);
     }
+
+    @Override
+    public List<Object> getResourceTypes() {
+        return mongoTemplate.query(Resource.class).distinct("type").all();
+    }
 }
